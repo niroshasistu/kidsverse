@@ -4,10 +4,10 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 // Components
 import Navbar from "./components/Navbar";
-// import Footer from "./components/Footer";/
+import Footer from "./components/Footer";
 
 // Pages
-import Dashboard from "./pages/Dashboard";
+import Home from "./pages/Home";
 import LearningZone from "./pages/LearningZone";
 import BrainGames from "./pages/BrainGames";
 import StoryWorld from "./pages/StoryWorld";
@@ -15,6 +15,7 @@ import HealthTracker from "./pages/HealthTracker";
 import CreativityStudio from "./pages/CreativityStudio";
 import EcoZone from "./pages/EcoZone";
 import TalentShowcase from "./pages/TalentShowcase";
+
 
 function App() {
   return (
@@ -26,8 +27,8 @@ function App() {
         {/* Page content */}
         <div className="page-content">
           <Routes>
-            <Route path="/" element={<Dashboard />} />
-            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/" element={<Home/>} />
+            {/* <Route path="/dashboard" element={<Dashboard />} /> */}
             <Route path="/learningzone" element={<LearningZone />} />
             <Route path="/braingames" element={<BrainGames />} />
             <Route path="/storyworld" element={<StoryWorld />} />
@@ -41,7 +42,7 @@ function App() {
         </div>
 
         {/* Footer always visible */}
-        {/* <Footer /> */}
+        <Footer />
       </div>
     </Router>
   );

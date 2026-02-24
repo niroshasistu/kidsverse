@@ -1,0 +1,15 @@
+.footer {
+  background-color: #ffd700; /* golden theme */
+  color: #1a1a1a;
+  padding: 20px 10px;
+  text-align: center;
+  font-family: 'Arial', sans-serif;
+  margin-top: 20px;
+  border-top: 2px solid #ffcc00;
+  box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+  transition: background 0.3s;
+}
+
+.footer:hover {
+  background-color: #ffcc00;
+}
