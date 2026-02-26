@@ -1,11 +1,24 @@
 import React from "react";
+import "./Footer.css";
 
 const Footer = () => {
   return (
-    <footer style={{ padding: "10px", background: "#ffd700", marginTop: "20px", textAlign: "center" }}>
-      © 2026 KidsVerse. All rights reserved.
+    <footer className="footer">
+      <h3>KidsVerse 🌈</h3>
+      <p>Learn • Play • Grow</p>
+
+      <div className="footer-links">
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Stories</a>
+        <a href="#">Contact</a>
+      </div>
+
+      <div className="footer-bottom">
+        © 2026 KidsVerse. All Rights Reserved.
+      </div>
     </footer>
   );
 };
 
-export default Footer;
+export default Footer;   // 👈 VERY IMPORTANT

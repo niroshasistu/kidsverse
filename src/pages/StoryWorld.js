@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./StoryWorld.css";
 
-// ---- IMPORT STORY IMAGES ----
+/* ---------------- STORY IMAGES ---------------- */
 import lion from "../assets/stories/lion.jpg";
 import tortoise from "../assets/stories/tortoise.jpg";
 import wolf from "../assets/stories/wolf.jpg";
@@ -13,7 +13,7 @@ import bears from "../assets/stories/bears.jpg";
 import pigs from "../assets/stories/pigs.jpg";
 import red from "../assets/stories/red.jpg";
 
-// ---- IMPORT RHYME IMAGES ----
+/* ---------------- RHYME IMAGES ---------------- */
 import twinkle from "../assets/rhymes/twinkle.jpg";
 import baa from "../assets/rhymes/baa.jpg";
 import bus from "../assets/rhymes/bus.jpg";
@@ -21,228 +21,241 @@ import farm from "../assets/rhymes/farm.jpg";
 import humpty from "../assets/rhymes/humpty.jpg";
 import johny from "../assets/rhymes/johny.jpg";
 import abc from "../assets/rhymes/abc.jpg";
-import monkeys from "../assets/rhymes/monkeys.jpg";
-import lamb from "../assets/rhymes/lamb.jpg";
-import boat from "../assets/rhymes/boat.jpg";
+import jackRhyme from "../assets/rhymes/jack.jpg";
+import rain from "../assets/rhymes/rain.jpg";
+import bridge from "../assets/rhymes/bridge.jpg";
 
 const StoryWorld = () => {
-    const [activeTab, setActiveTab] = useState("stories");
-    const [selectedItem, setSelectedItem] = useState(null);
+  const [activeTab, setActiveTab] = useState("stories");
+  const [selectedItem, setSelectedItem] = useState(null);
 
-    const stories = [
-        {
-            id: 1,
-            title: "The Lion and the Mouse",
-            image: lion,
-            content:
-                "A mighty lion once caught a tiny mouse. The mouse begged for mercy and promised to help someday. Later, the lion was trapped in a hunter’s net. The little mouse chewed the ropes and freed him.Moral: Even small friends can make a big difference"
-        },
-        {
-            id: 2,
-            title: "The Tortoise and the Hare",
-            image: tortoise,
-            content:
-                "A fast hare laughed at a slow tortoise and challenged him to a race. The hare ran fast but stopped to rest. The tortoise kept going slowly and steadily and won the race. Moral: Slow and steady wins the race."
-        },
-        {
-            id: 3,
-            title: "The Boy Who Cried Wolf",
-            image: wolf,
-            content:
-                "A shepherd boy lied about seeing a wolf. Villagers came to help but found no wolf. When a real wolf appeared, no one believed him. Moral: Always tell the truth"
-        },
-        {
-            id: 4,
-            title: "Cinderella",
-            image: cinderella,
-            content:
-                "Cinderella was treated badly by her stepmother. With her fairy godmother’s magic, she went to a royal ball and met the prince. She left behind a glass slipper. The prince searched for her and they lived happily ever after."
-        },
-        {
-            id: 5,
-            title: "Snow White",
-            image: snowwhite,
-            content:
-                "Snow White escaped her jealous stepmother and found shelter with seven dwarfs. The queen tricked her with a poisoned apple, but a prince broke the spell. Goodness won in the end."
-        },
-        {
-            id: 6,
-            title: "The Ugly Duckling",
-            image: duckling,
-            content:
-                "A little duckling was teased for looking different. As he grew older, he became a beautiful swan. Moral: It’s okay to be different."
-        },
-        {
-            id: 7,
-            title: "Jack and the Beanstalk",
-            image: jack,
-            content:
-                "Jack planted magic beans that grew into a giant beanstalk. He climbed up and found a giant’s treasure. He escaped safely and lived happily with his mother."
-        },
-        {
-            id: 8,
-            title: "Goldilocks and the Three Bears",
-            image: bears,
-            content:
-                "Goldilocks entered the bears’ house, tasted their food, and slept in their bed. When the bears returned, she ran away. Lesson: Respect others' belongings."
-        },
-        {
-            id: 9,
-            title: "The Three Little Pigs",
-            image: pigs,
-            content:
-                "Three pigs built houses of straw, sticks, and bricks. The wolf blew down the weak houses but failed against the brick house. Moral: Hard work pays off."
-        },
-        {
-            id: 10,
-            title: "Little Red Riding Hood",
-            image: red,
-            content:
-                "Little Red Riding Hood met a wolf on her way to Grandma’s house. The wolf tricked her, but a woodcutter saved them. Moral: Be careful with strangers."
-        }
-    ];
+  /* -------- Convert YouTube link to EMBED -------- */
+  const getEmbedLink = (url) => {
+    if (!url) return "";
+    const videoId = url.split("youtu.be/")[1]?.split("?")[0];
+    return `https://www.youtube.com/embed/${videoId}`;
+  };
 
-   const rhymes = [
-  
+  /* ---------------- STORIES ---------------- */
+  const stories = [
     {
-        id: 1,
-        title: "Twinkle Twinkle Little Star",
-        image: twinkle,
-        content: `
-Twinkle, twinkle, little star,
-How I wonder what you are!
-Up above the world so high,
-Like a diamond in the sky.
-Twinkle, twinkle, little star,
-How I wonder what you are!
-        `
+      id: 1,
+      title: "The Lion and the Mouse",
+      image: lion,
+      content: "A mighty lion once caught a tiny mouse. The mouse later saved the lion from a hunter’s net.",
+      videoLink: "https://youtu.be/GxcGVCEEdcU"
     },
     {
-        id: 2,
-        title: "Baa Baa Black Sheep",
-        image: baa,
-        content: `
-Baa, baa, black sheep,
-Have you any wool?
-Yes sir, yes sir,
-Three bags full!
-One for the master,
-One for the dame,
-And one for the little boy
-Who lives down the lane.
-        `
+      id: 2,
+      title: "The Tortoise and the Hare",
+      image: tortoise,
+      content: "A fast hare laughed at a slow tortoise. But slow and steady won the race.",
+      videoLink: "https://youtu.be/Fm9VUjihKJ4"
     },
     {
-        id: 3,
-        title: "Wheels on the Bus",
-        image: bus,
-        content: `
-The wheels on the bus go round and round,
-Round and round, round and round,
-The wheels on the bus go round and round,
-All through the town.
-        `
+      id: 3,
+      title: "The Boy Who Cried Wolf",
+      image: wolf,
+      content: "A shepherd boy lied about a wolf. When a real wolf came, no one believed him.",
+      videoLink: "https://youtu.be/dlflr5b5VgQ"
     },
     {
-        id: 4,
-        title: "Old MacDonald Had a Farm",
-        image: farm,
-        content: `
-Old MacDonald had a farm,
-E-I-E-I-O!
-And on his farm he had a cow,
-E-I-E-I-O!
-With a moo moo here,
-And a moo moo there,
-Here a moo, there a moo,
-Everywhere a moo moo!
-        `
+      id: 4,
+      title: "Cinderella",
+      image: cinderella,
+      content: "With the help of her fairy godmother, Cinderella met the prince and found happiness.",
+      videoLink: "https://youtu.be/DgwZebuIiXc"
     },
     {
-        id: 5,
-        title: "Humpty Dumpty",
-        image: humpty,
-        content: `Humpty Dumpty sat on a wall; Humpty had a great fall.`
+      id: 5,
+      title: "Snow White",
+      image: snowwhite,
+      content: "Snow White escaped her jealous queen and was saved by a prince.",
+      videoLink: "https://youtu.be/iigRJzpACuc"
     },
     {
-        id: 6,
-        title: "Johny Johny Yes Papa",
-        image: johny,
-        content: `
-Johny Johny?
-Yes Papa?
-Eating sugar?
-No Papa!
-Telling lies?
-No Papa!
-Open your mouth!
-Ha Ha Ha!
-        `
+      id: 6,
+      title: "The Ugly Duckling",
+      image: duckling,
+      content: "A duckling teased for being different grew into a beautiful swan.",
+      videoLink: "https://youtu.be/OSWLxj4kTKA"
     },
     {
-        id: 7,
-        title: "ABC Song",
-        image: abc,
-        content: `
-A B C D E F G,
-H I J K L M N O P,
-Q R S,
-T U V,
-W X Y and Z,
-Now I know my ABCs,
-Next time won’t you sing with me?
-        `
+      id: 7,
+      title: "Jack and the Beanstalk",
+      image: jack,
+      content: "Jack climbed a magical beanstalk and found a giant’s treasure.",
+      videoLink: "https://youtu.be/-qxtmahpBwM"
     },
-    
-];
-    const dataToShow = activeTab === "stories" ? stories : rhymes;
+    {
+      id: 8,
+      title: "Goldilocks and the Three Bears",
+      image: bears,
+      content: "Goldilocks entered the bears' house and learned to respect others.",
+      videoLink: "https://youtu.be/VjIE-Sl-qKY"
+    },
+    {
+      id: 9,
+      title: "The Three Little Pigs",
+      image: pigs,
+      content: "Three pigs built houses. Only the brick house survived the wolf.",
+      videoLink: "https://youtu.be/PhJs-5ZJHKA"
+    },
+    {
+      id: 10,
+      title: "Little Red Riding Hood",
+      image: red,
+      content: "Little Red Riding Hood met a wolf but was saved by a woodcutter.",
+      videoLink: "https://youtu.be/yDPwz9NsDbQ"
+    }
+  ];
 
-    return (
-        <div className="story-world">
-            <h2 className="heading">📚 Story World</h2>
+  /* ---------------- RHYMES ---------------- */
+  const rhymes = [
+    {
+      id: 1,
+      title: "Twinkle Twinkle Little Star",
+      image: twinkle,
+      content: "Twinkle, twinkle, little star...",
+      videoLink: "https://youtu.be/hqzvHfy-Ij0"
+    },
+    {
+      id: 2,
+      title: "Baa Baa Black Sheep",
+      image: baa,
+      content: "Baa, baa, black sheep...",
+      videoLink: "https://youtu.be/MR5XSOdjKMA"
+    },
+    {
+      id: 3,
+      title: "Wheels on the Bus",
+      image: bus,
+      content: "The wheels on the bus go round and round...",
+      videoLink: "https://youtu.be/e_04ZrNroTo"
+    },
+    {
+      id: 4,
+      title: "Old MacDonald Had a Farm",
+      image: farm,
+      content: "Old MacDonald had a farm...",
+      videoLink: "https://youtu.be/Wm4R8d0d8kU"
+    },
+    {
+      id: 5,
+      title: "Humpty Dumpty",
+      image: humpty,
+      content: "Humpty Dumpty sat on a wall...",
+      videoLink: "https://youtu.be/nrv495corBc"
+    },
+    {
+      id: 6,
+      title: "Johny Johny Yes Papa",
+      image: johny,
+      content: "Johny Johny? Yes Papa?...",
+      videoLink: "https://youtu.be/EA_fbT6oN2k"
+    },
+    {
+      id: 7,
+      title: "ABC Song",
+      image: abc,
+      content: "A B C D E F G...",
+      videoLink: "https://youtu.be/RIQDmnIJZv8"
+    },
+    {
+      id: 8,
+      title: "Jack and Jill",
+      image: jackRhyme,
+      content: "Jack and Jill went up the hill...",
+      videoLink: "https://youtu.be/FYojUSFfuMg"
+    },
+    {
+      id: 9,
+      title: "Rain Rain Go Away",
+      image: rain,
+      content: "Rain, rain, go away...",
+      videoLink: "https://youtu.be/NBuA6YIQHCs"
+    },
+    {
+      id: 10,
+      title: "London Bridge Is Falling Down",
+      image: bridge,
+      content: "London Bridge is falling down...",
+      videoLink: "https://youtu.be/wwosJXWGWRY"
+    }
+  ];
 
-            <div className="tabs">
-                <button
-                    className={activeTab === "stories" ? "active" : ""}
-                    onClick={() => setActiveTab("stories")}
-                >
-                    Stories
-                </button>
-                <button
-                    className={activeTab === "rhymes" ? "active" : ""}
-                    onClick={() => setActiveTab("rhymes")}
-                >
-                    Rhymes
-                </button>
+  const dataToShow = activeTab === "stories" ? stories : rhymes;
+
+  return (
+    <div className="story-world">
+      <h2 className="heading">📚 Story World</h2>
+
+      <div className="tabs">
+        <button
+          className={activeTab === "stories" ? "active" : ""}
+          onClick={() => setActiveTab("stories")}
+        >
+          Stories
+        </button>
+
+        <button
+          className={activeTab === "rhymes" ? "active" : ""}
+          onClick={() => setActiveTab("rhymes")}
+        >
+          Rhymes
+        </button>
+      </div>
+
+      <div className="card-container">
+
+        {selectedItem && (
+          <div className="story-popup">
+            <div className="popup-content">
+              <h2>{selectedItem.title}</h2>
+
+              <img
+                src={selectedItem.image}
+                alt={selectedItem.title}
+                className="popup-img"
+              />
+
+              <p>{selectedItem.content}</p>
+
+              {selectedItem.videoLink && (
+                <div className="video-container">
+                  <iframe
+                    width="100%"
+                    height="315"
+                    src={getEmbedLink(selectedItem.videoLink)}
+                    title="YouTube video"
+                    frameBorder="0"
+                    allowFullScreen
+                  ></iframe>
+                </div>
+              )}
+
+              <button onClick={() => setSelectedItem(null)}>
+                Close
+              </button>
             </div>
+          </div>
+        )}
 
-            <div className="card-container">
-                {selectedItem && (
-                    <div className="story-popup">
-                        <div className="popup-content">
-                            <h2>{selectedItem.title}</h2>
-                            <img src={selectedItem.image} alt={selectedItem.title} />
-                            <p>{selectedItem.content}</p>
-                            <button onClick={() => setSelectedItem(null)}>Close</button>
-                        </div>
-                    </div>
-                )}
-
-                {dataToShow.map((item) => (
-                    <div key={item.id} className="card">
-                        <img src={item.image} alt={item.title} />
-                        <h3>{item.title}</h3>
-                        <button
-                            className="read-btn"
-                            onClick={() => setSelectedItem(item)}
-                        >
-                            Explore
-                        </button>
-                    </div>
-                ))}
-            </div>
-        </div>
-    );
+        {dataToShow.map((item) => (
+          <div key={item.id} className="card">
+            <img src={item.image} alt={item.title} />
+            <h3>{item.title}</h3>
+            <button
+              className="read-btn"
+              onClick={() => setSelectedItem(item)}
+            >
+          lets go
+            </button>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
 };
 
 export default StoryWorld;

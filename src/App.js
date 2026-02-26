@@ -17,34 +17,34 @@ import EcoZone from "./pages/EcoZone";
 import TalentShowcase from "./pages/TalentShowcase";
 
 
+
 function App() {
   return (
-    <Router>
-      <div className="App">
-        {/* Navbar always visible */}
-        <Navbar />
+   
+      <Router>
+        <div className="App">
+          {/* Navbar always visible */}
+          <Navbar />
 
-        {/* Page content */}
-        <div className="page-content">
-          <Routes>
-            <Route path="/" element={<Home/>} />
-            {/* <Route path="/dashboard" element={<Dashboard />} /> */}
-            <Route path="/learningzone" element={<LearningZone />} />
-            <Route path="/braingames" element={<BrainGames />} />
-            <Route path="/storyworld" element={<StoryWorld />} />
-            <Route path="/healthtracker" element={<HealthTracker />} />
-            <Route path="/creativitystudio" element={<CreativityStudio />} />
-            <Route path="/ecozone" element={<EcoZone />} />
-            <Route path="/talentshowcase" element={<TalentShowcase />} />
-            {/* Optional: Add a 404 NotFound page */}
-            {/* <Route path="*" element={<NotFound />} /> */}
-          </Routes>
+          {/* Page content */}
+          <div className="page-content">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/learningzone" element={<LearningZone />} />
+              <Route path="/braingames" element={<BrainGames />} />
+              <Route path="/storyworld" element={<StoryWorld />} />
+              <Route path="/healthtracker" element={<HealthTracker />} />
+              <Route path="/creativitystudio" element={<CreativityStudio />} />
+              <Route path="/ecozone" element={<EcoZone />} />
+              <Route path="/talentshowcase" element={<TalentShowcase />} />
+            </Routes>
+          </div>
+
+          {/* Footer always visible */}
+          <Footer />
         </div>
-
-        {/* Footer always visible */}
-        <Footer />
-      </div>
-    </Router>
+      </Router>
+  
   );
 }
 

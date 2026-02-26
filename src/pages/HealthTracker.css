@@ -1,0 +1,102 @@
+.dashboard {
+  min-height: 100vh;
+  padding: 40px;
+  background: linear-gradient(135deg, #74ebd5, #acb6e5);
+  text-align: center;
+  font-family: sans-serif;
+}
+
+.title {
+  font-size: 32px;
+  color: white;
+  margin-bottom: 40px;
+  text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+}
+
+/* 💧 WATER SECTION */
+.water-section {
+  margin-bottom: 50px;
+}
+
+.circle {
+  width: 150px;
+  height: 150px;
+  margin: auto;
+  border-radius: 50%;
+  background: radial-gradient(circle, #42a5f5, #1e88e5);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 30px rgba(33,150,243,0.6);
+  margin-bottom: 20px;
+}
+
+.water-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.water-btn {
+  font-size: 22px;
+  padding: 12px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  background: white;
+  transition: 0.3s;
+}
+
+.water-btn.active {
+  background: #2196f3;
+  color: white;
+  box-shadow: 0 0 15px #2196f3;
+}
+
+/* 🧘 & 🏃 SECTIONS */
+.list-section {
+  margin: 30px auto;
+  width: 50%;
+  background: rgba(255,255,255,0.8);
+  padding: 25px;
+  border-radius: 20px;
+  backdrop-filter: blur(8px);
+}
+
+.list-section.green {
+  background: rgba(200,255,200,0.8);
+}
+
+.list-item {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 10px 0;
+  font-size: 18px;
+}
+
+.small-progress {
+  margin-top: 15px;
+  font-weight: bold;
+  color: #444;
+}
+
+/* 🎉 VICTORY */
+.victory {
+  margin-top: 40px;
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+  background: linear-gradient(to right, #ff9800, #ff5722);
+  padding: 20px;
+  border-radius: 20px;
+  animation: pop 0.5s ease;
+}
+
+@keyframes pop {
+  0% { transform: scale(0.8); }
+  100% { transform: scale(1); }
+}
