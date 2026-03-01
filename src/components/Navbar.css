@@ -1,42 +1,214 @@
+/* ===============================
+   MAIN NAVBAR CONTAINER
+================================= */
+
 .navbar {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1000;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 1200px;
 
   display: flex;
   justify-content: space-between;
   align-items: center;
 
   padding: 15px 40px;
-   background: linear-gradient(90deg, #ff6b6b, #feca57, #48dbfb);
+  border-radius: 50px;
 
-  font-family: Arial, sans-serif;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  border: 2px solid transparent;
+  background-clip: padding-box;
+
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+
+  /* bring navbar above popups/overlays (e.g. story popup) */
+  z-index: 2000;
+  box-sizing: border-box;
+
+  transition: all 0.4s ease;
+  overflow: visible;
 }
+
+/* 🌈 Gradient Glowing Border */
+.navbar::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50px;
+  padding: 2px;
+  background: linear-gradient(90deg, #ff6b6b, #feca57, #48dbfb, #ff9ff3);
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: borderGlow 4s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes borderGlow {
+  0% { filter: hue-rotate(0deg); }
+  100% { filter: hue-rotate(360deg); }
+}
+
+/* ✨ Shine Animation */
+.navbar::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    rgba(255,255,255,0.2) 0%,
+    rgba(255,255,255,0.6) 50%,
+    rgba(255,255,255,0.2) 100%
+  );
+  transform: skewX(-25deg);
+  animation: shine 5s infinite;
+  pointer-events: none;
+}
+
+@keyframes shine {
+  0% { left: -75%; }
+  100% { left: 130%; }
+}
+
+/* Scroll Effect */
+.navbar.scrolled {
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* ===============================
+   LOGO
+================================= */
 
 .navbar-logo a {
   text-decoration: none;
-  font-size: 26px;
+  font-size: 22px;
   font-weight: bold;
-  color: #1a1a1a;
+  color: #4b2aad;
 }
+
+/* ===============================
+   NAV LINKS (FIXED HORIZONTAL)
+================================= */
 
 .navbar-links {
   display: flex;
-  gap: 25px;
+  gap: 35px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+}
+
+.navbar-links li {
   list-style: none;
 }
 
-.navbar-links li a {
+.navbar-links a {
   text-decoration: none;
-  color: #1a1a1a;
-  font-size: 16px;
-  transition: 0.3s;
+  font-size: 18px;
+  font-weight: 600;
+  color: #4b2aad;
+  padding: 8px 18px;
+  border-radius: 25px;
+  transition: all 0.3s ease;
 }
 
-.navbar-links li a:hover {
-  color: #ff6600;
-  transform: scale(1.1);
+/* Hover Effect */
+.navbar-links a:hover {
+  background: rgba(255, 255, 255, 0.35);
+  color: #ff4d88;
+  transform: translateY(-2px);
+}
+/* ===============================
+   HAMBURGER BUTTON
+================================= */
+
+.hamburger {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: #4b2aad;
+  z-index: 2100;
+}
+
+/* ===============================
+   MOBILE RESPONSIVE
+================================= */
+
+@media (max-width: 768px) {
+
+  .navbar {
+    padding: 12px 20px;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .navbar-links {
+    position: absolute;
+    top: 80px;
+    right: 20px;
+    flex-direction: column;
+    gap: 20px;
+    width: 220px;
+    padding: 25px 0;
+    border-radius: 25px;
+
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(15px);
+
+    display: none;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  }
+
+  .navbar-links.active {
+    display: flex;
+  }
+
+  .navbar-links a {
+    font-size: 16px;
+  }
+}
+/* Login & Sign Up Buttons */
+.nav-buttons button {
+  padding: 12px 28px;   /* 🔥 Side width increase */
+  border: none;
+  border-radius: 30px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Login Button */
+.login-btn {
+  background: linear-gradient(135deg, #a855f7, #ec4899);
+  color: white;
+}
+
+/* Sign Up Button */
+.signup-btn {
+  background: linear-gradient(135deg, #6366f1, #ec4899);
+  color: white;
+  margin-left: 12px;
+}
+
+/* Hover Effect */
+.nav-buttons button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
